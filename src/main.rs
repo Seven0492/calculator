@@ -60,8 +60,8 @@ fn main() {
 
         // Debugging
         // println!(
-            // "Var i: '{}' (From checking for a weird starter argument)",
-            // i
+        // "Var i: '{}' (From checking for a weird starter argument)",
+        // i
         // );
         // EOD
     } else if args.len() > 3 {
@@ -82,6 +82,8 @@ Options:
     Multiplication `2 x 4` but not `2 * 4` in Linux due to issues '*' creates,
     Division `2 / 4`.
 
+Btw, If you just type two numbers separated by spaces without any symbols, it will default to multiplication.
+
 For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
         );
 
@@ -90,19 +92,15 @@ For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
         // EOD
 
         // If first argument is a number
-    } else if args[i].parse::<f64>().is_ok() {
+    } else {
+        calculate(args, i);
+    }
+}
 
-        if !args[i + 1].parse::<f64>().is_ok() {
-            let mut numbers = NumSet {
-                num1: args[i].clone(),
-                num2: args[i + 2].clone(),
-            };
-        } else {
-            let mut numbers = NumSet {
-                num1: args[i].clone(),
-                num2: args[i + 1].clone(),
-            };
-        }
+fn calculate(args: Vec<String>, i: usize) {
+    if args[i].parse::<f64>().is_ok() {
+        let mut i = i;
+        let mut numbers = make_numset(&args, &i);
 
         // Debugging
         // println!("Variable numbers.num1: '{}'", numbers.num1);
@@ -143,8 +141,13 @@ For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
         } else if i == 0 {
             i = 1;
 
-            numbers.num1 = args[i].clone();
-            numbers.num2 = args[i + 2].clone();
+            if args[i + 1].parse::<f64>().is_ok() {
+                numbers.num1 = args[i].clone();
+                numbers.num2 = args[i + 1].clone();
+            } else {
+                numbers.num1 = args[i].clone();
+                numbers.num2 = args[i + 2].clone();
+            }
 
             symbol = args[i + 1].clone();
 
@@ -196,7 +199,25 @@ Options:
     Multiplication `2 x 4` but not `2 * 4` in Linux due to issues '*' creates,
     Division `2 / 4`.
 
+Btw, If you just type two numbers separated by spaces without any symbols, it will default to multiplication.
+
 For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
         );
+    }
+}
+
+fn make_numset(args: &Vec<String>, i: &usize) -> NumSet {
+    if args[i + 1].parse::<f64>().is_ok() {
+        let numbers = NumSet {
+            num1: args[i + 0].clone(),
+            num2: args[i + 1].clone(),
+        };
+        numbers
+    } else {
+        let numbers = NumSet {
+            num1: args[i + 0].clone(),
+            num2: args[i + 2].clone(),
+        };
+        numbers
     }
 }
