@@ -29,28 +29,54 @@ impl NumSet {
 fn main() {
     let args: Vec<String> = env::args().collect();
 
+    // Debugging
+    println!("Variable args: {:?}", args);
+    println!("Lenght of the args variable: '{}'", args.len());
+    // EOD (Standing for: 'End Of Debugging')
+
     // Get the absolute path to the current working directory
     let dir1 = Path::new(".");
     let dir2 = dir1.absolutize().unwrap();
     let working_directory = dir2.to_str().unwrap();
 
+    // Debugging
+    println!("Variable working_directory: '{}'", working_directory);
+    // EOD
+
     // 'i' which means 'first argument'
     let mut i = 0;
 
     // Check if there's a weird starter argument unnacounted for
-    if args[0] == working_directory || !args[0].parse::<f64>().is_ok() {
+    if args[0] == working_directory
+        || args[0] == "target/debug/calculator"
+        || args[0] == "target/release/calculator"
+        || !args[0].parse::<f64>().is_ok()
+    {
         if args.len() > 4 {
             println!("Not enough arguments. Please execute the program without any arguments for documentation");
         }
 
         i = 1;
+
+        // Debugging
+        println!(
+            "Var i: '{}' (From checking for a weird starter argument)",
+            i
+        );
+        // EOD
     } else if args.len() > 3 {
         println!("Not enough arguments. Please execute the program without any arguments for documentation");
+
+        // Debugging
+        println!("Variable i: '{}' (From args.len() > 3)", i);
+        // EOD
     }
 
-    if args.is_empty() || args.len() >= 1 {
+    if args.len() <= 1 {
         println!(
-            "Pass in a single basic mathematical operation to be made.
+            "For debugging purposes: \"From args.len() <= 1\"
+
+Pass in a single basic mathematical operation to be made.
 
 Options:
     Addition `2 + 4`,
@@ -60,17 +86,28 @@ Options:
 
 For example: `./executable.exe 1 + 1` or `./executable.exe 2 x 4`\n"
         );
-    // If a number
+
+        // Debugging
+        println!("Variable i: '{}' (From args.len() <= 1)", i);
+        // EOD
+
+        // If first argument is a number
     } else if args[i].parse::<f64>().is_ok() {
         let mut numbers = NumSet {
             num1: args[i].clone(),
             num2: args[i + 2].clone(),
         };
 
+        // Debugging
+        println!("Variable numbers.num1: '{}'", numbers.num1);
+        println!("Variable numbers.num2: '{}'", numbers.num2);
+        // EOD
+
         let mut symbol = args[i + 1].clone();
 
         // Debugging
-        // println!("{}", symbol);
+        println!("{}", symbol);
+        // EOD
 
         if symbol == "+" {
             println!(
@@ -105,6 +142,13 @@ For example: `./executable.exe 1 + 1` or `./executable.exe 2 x 4`\n"
 
             symbol = args[i + 1].clone();
 
+            // Debugging
+            println!("Variable i: '{}'", i);
+            println!("Struct value numbers.num1: '{}'", numbers.num1);
+            println!("Struct value numbers.num2: '{}'", numbers.num2);
+            println!("Variable symbol: '{}'", symbol);
+            // EOD
+
             if symbol == "+" {
                 println!(
                     "{}",
@@ -138,7 +182,9 @@ For example: `./executable.exe 1 + 1` or `./executable.exe 2 x 4`\n"
         }
     } else {
         println!(
-            "Pass in a single basic mathematical operation to be made.
+            "For debugging purposes: \"From a long series of else's\"
+
+Pass in a single basic mathematical operation to be made.
 
 Options:
     Addition `2 + 4`,
