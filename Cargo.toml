@@ -7,3 +7,9 @@ edition = "2021"
 
 [dependencies]
 path-absolutize = "3.0.13"
+
+[profile.release]
+strip = true
+opt-level = "s"
+lto = true
+codegen-units = 1
