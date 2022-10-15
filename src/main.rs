@@ -82,7 +82,7 @@ Options:
     Multiplication `2 x 4` but not `2 * 4` in Linux due to issues '*' creates,
     Division `2 / 4`.
 
-For example: `./executable.exe 1 + 1` or `./executable.exe 2 x 4`\n"
+For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
         );
 
         // Debugging
@@ -188,7 +188,7 @@ Options:
     Multiplication `2 * 4` or `2 x 4`,
     Division `2 / 4`.
 
-For example: `./executable.exe 1 + 1` or `./executable.exe 2 x 4`\n"
+For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
         );
     }
 }
