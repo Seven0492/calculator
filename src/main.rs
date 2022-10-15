@@ -91,10 +91,18 @@ For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
 
         // If first argument is a number
     } else if args[i].parse::<f64>().is_ok() {
-        let mut numbers = NumSet {
-            num1: args[i].clone(),
-            num2: args[i + 2].clone(),
-        };
+
+        if !args[i + 1].parse::<f64>().is_ok() {
+            let mut numbers = NumSet {
+                num1: args[i].clone(),
+                num2: args[i + 2].clone(),
+            };
+        } else {
+            let mut numbers = NumSet {
+                num1: args[i].clone(),
+                num2: args[i + 1].clone(),
+            };
+        }
 
         // Debugging
         // println!("Variable numbers.num1: '{}'", numbers.num1);
