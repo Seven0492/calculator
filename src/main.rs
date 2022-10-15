@@ -30,8 +30,8 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     // Debugging
-    println!("Variable args: {:?}", args);
-    println!("Lenght of the args variable: '{}'", args.len());
+    // println!("Variable args: {:?}", args);
+    // println!("Lenght of the args variable: '{}'", args.len());
     // EOD (Standing for: 'End Of Debugging')
 
     // Get the absolute path to the current working directory
@@ -40,7 +40,7 @@ fn main() {
     let working_directory = dir2.to_str().unwrap();
 
     // Debugging
-    println!("Variable working_directory: '{}'", working_directory);
+    // println!("Variable working_directory: '{}'", working_directory);
     // EOD
 
     // 'i' which means 'first argument'
@@ -59,24 +59,22 @@ fn main() {
         i = 1;
 
         // Debugging
-        println!(
-            "Var i: '{}' (From checking for a weird starter argument)",
-            i
-        );
+        // println!(
+            // "Var i: '{}' (From checking for a weird starter argument)",
+            // i
+        // );
         // EOD
     } else if args.len() > 3 {
         println!("Not enough arguments. Please execute the program without any arguments for documentation");
 
         // Debugging
-        println!("Variable i: '{}' (From args.len() > 3)", i);
+        // println!("Variable i: '{}' (From args.len() > 3)", i);
         // EOD
     }
 
     if args.len() <= 1 {
         println!(
-            "For debugging purposes: \"From args.len() <= 1\"
-
-Pass in a single basic mathematical operation to be made.
+            "Pass in a single basic mathematical operation to be made.
 
 Options:
     Addition `2 + 4`,
@@ -88,7 +86,7 @@ For example: `./executable.exe 1 + 1` or `./executable.exe 2 x 4`\n"
         );
 
         // Debugging
-        println!("Variable i: '{}' (From args.len() <= 1)", i);
+        // println!("Variable i: '{}' (From args.len() <= 1)", i);
         // EOD
 
         // If first argument is a number
@@ -99,14 +97,14 @@ For example: `./executable.exe 1 + 1` or `./executable.exe 2 x 4`\n"
         };
 
         // Debugging
-        println!("Variable numbers.num1: '{}'", numbers.num1);
-        println!("Variable numbers.num2: '{}'", numbers.num2);
+        // println!("Variable numbers.num1: '{}'", numbers.num1);
+        // println!("Variable numbers.num2: '{}'", numbers.num2);
         // EOD
 
         let mut symbol = args[i + 1].clone();
 
         // Debugging
-        println!("{}", symbol);
+        // println!("{}", symbol);
         // EOD
 
         if symbol == "+" {
@@ -143,10 +141,10 @@ For example: `./executable.exe 1 + 1` or `./executable.exe 2 x 4`\n"
             symbol = args[i + 1].clone();
 
             // Debugging
-            println!("Variable i: '{}'", i);
-            println!("Struct value numbers.num1: '{}'", numbers.num1);
-            println!("Struct value numbers.num2: '{}'", numbers.num2);
-            println!("Variable symbol: '{}'", symbol);
+            // println!("Variable i: '{}'", i);
+            // println!("Struct value numbers.num1: '{}'", numbers.num1);
+            // println!("Struct value numbers.num2: '{}'", numbers.num2);
+            // println!("Variable symbol: '{}'", symbol);
             // EOD
 
             if symbol == "+" {
@@ -182,9 +180,7 @@ For example: `./executable.exe 1 + 1` or `./executable.exe 2 x 4`\n"
         }
     } else {
         println!(
-            "For debugging purposes: \"From a long series of else's\"
-
-Pass in a single basic mathematical operation to be made.
+            "Pass in a single basic mathematical operation to be made.
 
 Options:
     Addition `2 + 4`,
