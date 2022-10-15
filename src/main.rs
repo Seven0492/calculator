@@ -82,7 +82,8 @@ Options:
     Multiplication `2 x 4` but not `2 * 4` in Linux due to issues '*' creates,
     Division `2 / 4`.
 
-Btw, If you just type two numbers separated by spaces without any symbols, it will default to multiplication.
+Btw, If you just type two numbers separated by spaces without any symbols,
+  it will default to multiplication.
 
 For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
         );
@@ -199,7 +200,8 @@ Options:
     Multiplication `2 x 4` but not `2 * 4` in Linux due to issues '*' creates,
     Division `2 / 4`.
 
-Btw, If you just type two numbers separated by spaces without any symbols, it will default to multiplication.
+Btw, If you just type two numbers separated by spaces without any symbols,
+  it will default to multiplication.
 
 For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
         );
