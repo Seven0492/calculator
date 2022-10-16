@@ -79,7 +79,7 @@ fn main() {
 Options:
     Addition `2 + 4`,
     Substract `2 - 4`,
-    Multiplication `2 x 4` but not `2 * 4` in Linux due to issues '*' creates,
+    Multiplication `2 x 4` but using '*' without quotes can create problems,
     Division `2 / 4`.
 
 Btw, If you just type two numbers separated by spaces without any symbols,
@@ -100,104 +100,17 @@ For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
 
 fn calculate(args: Vec<String>, i: usize) {
     if args[i].parse::<f64>().is_ok() {
-        let mut i = i;
-        let mut numbers = make_numset(&args, &i);
-
-        // Debugging
-        // println!("Variable numbers.num1: '{}'", numbers.num1);
-        // println!("Variable numbers.num2: '{}'", numbers.num2);
-        // EOD
-
-        let mut symbol = args[i + 1].clone();
-
-        // Debugging
-        // println!("{}", symbol);
-        // EOD
-
-        if symbol == "+" {
-            println!(
-                "{}",
-                numbers.add(numbers.num1.clone(), numbers.num2.clone())
-            );
-        } else if symbol == "-" {
-            println!(
-                "{}",
-                numbers.substract(numbers.num1.clone(), numbers.num2.clone())
-            );
-        } else if symbol.to_lowercase() == "*" || symbol.to_lowercase() == "x" {
-            println!(
-                "{}",
-                numbers.multiplicate(numbers.num1.clone(), numbers.num2.clone())
-            );
-        } else if symbol == "/" {
-            println!(
-                "{}",
-                numbers.divide(numbers.num1.clone(), numbers.num2.clone())
-            );
-        } else if symbol.parse::<f64>().is_ok() {
-            println!(
-                "{}",
-                numbers.multiplicate(numbers.num1.clone(), symbol.clone())
-            );
-        } else if i == 0 {
-            i = 1;
-
-            if args[i + 1].parse::<f64>().is_ok() {
-                numbers.num1 = args[i].clone();
-                numbers.num2 = args[i + 1].clone();
-            } else {
-                numbers.num1 = args[i].clone();
-                numbers.num2 = args[i + 2].clone();
-            }
-
-            symbol = args[i + 1].clone();
-
-            // Debugging
-            // println!("Variable i: '{}'", i);
-            // println!("Struct value numbers.num1: '{}'", numbers.num1);
-            // println!("Struct value numbers.num2: '{}'", numbers.num2);
-            // println!("Variable symbol: '{}'", symbol);
-            // EOD
-
-            if symbol == "+" {
-                println!(
-                    "{}",
-                    numbers.add(numbers.num1.clone(), numbers.num2.clone())
-                );
-            } else if symbol == "-" {
-                println!(
-                    "{}",
-                    numbers.substract(numbers.num1.clone(), numbers.num2.clone())
-                );
-            } else if symbol.to_lowercase() == "*" || symbol.to_lowercase() == "x" {
-                println!(
-                    "{}",
-                    numbers.multiplicate(numbers.num1.clone(), numbers.num2.clone())
-                );
-            } else if symbol == "/" {
-                println!(
-                    "{}",
-                    numbers.divide(numbers.num1.clone(), numbers.num2.clone())
-                );
-            } else if symbol.parse::<f64>().is_ok() {
-                println!(
-                    "{}",
-                    numbers.multiplicate(numbers.num1.clone(), symbol.clone())
-                );
-            } else {
-                panic!("Wrong formatting! Please execute the program without any arguments for documentation");
-            }
-        } else {
-            panic!("Wrong formatting! Please execute the program without any arguments for documentation");
-        }
+        operations(&args, &i);
     } else {
+        wrong_formating(1);
+        println!("\nDocumentation:\n\n");
         println!(
             "Pass in a single basic mathematical operation to be made.
 
 Options:
     Addition `2 + 4`,
     Substract ` 2 - 4`,
-    Multiplication `2 x 4` but not `2 * 4` in Linux due to issues '*' creates,
+    Multiplication `2 x 4` but using '*' without quotes can create problems,
     Division `2 / 4`.
 
 Btw, If you just type two numbers separated by spaces without any symbols,
@@ -221,5 +134,65 @@ fn make_numset(args: &Vec<String>, i: &usize) -> NumSet {
             num2: args[i + 2].clone(),
         };
         numbers
+    }
+}
+
+fn operations(args: &Vec<String>, mut i: &usize) -> bool {
+    let numbers = make_numset(&args, &i);
+    let symbol = args[i + 1].clone();
+
+    if symbol == "+" {
+        println!(
+            "{}",
+            numbers.add(numbers.num1.clone(), numbers.num2.clone())
+        );
+        true
+    } else if symbol == "-" {
+        println!(
+            "{}",
+            numbers.substract(numbers.num1.clone(), numbers.num2.clone())
+        );
+        true
+    } else if symbol.to_lowercase() == "*" || symbol.to_lowercase() == "x" {
+        println!(
+            "{}",
+            numbers.multiplicate(numbers.num1.clone(), numbers.num2.clone())
+        );
+        true
+    } else if symbol == "/" {
+        println!(
+            "{}",
+            numbers.divide(numbers.num1.clone(), numbers.num2.clone())
+        );
+        true
+    } else if symbol.parse::<f64>().is_ok() {
+        println!(
+            "{}",
+            numbers.multiplicate(numbers.num1.clone(), symbol.clone())
+        );
+        true
+    } else if i == &0 {
+        i = &1;
+
+        // Redo but with a
+        if operations(&args, &i) {
+            true
+        } else {
+            wrong_formating(2);
+            false
+        }
+    } else {
+        wrong_formating(2);
+        false
+    }
+}
+
+fn wrong_formating(n: usize) {
+    if n == 1 {
+        println!("Wrong formatting!");
+    } else if n == 2 {
+        println!(
+            "Wrong formatting! Please execute the program without any arguments for documentation"
+        );
     }
 }
