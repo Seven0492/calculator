@@ -68,7 +68,8 @@ fn main() {
         // );
         // EOD
     } else if args.len() > 3 {
-        println!("Not enough arguments. Please execute the program without any arguments for documentation");
+        // Disable warning
+        // println!("Too many arguments. Please execute the program without any arguments for documentation");
 
         // Debugging
         // println!("Variable i: '{}' (From args.len() > 3)", i);
@@ -98,7 +99,7 @@ fn calculate(args: Vec<String>, i: usize) {
     }
 }
 
-fn make_numset(args: &Vec<String>, mut i: &usize) -> NumSet {
+fn make_numset(args: &Vec<String>, i: &usize) -> NumSet {
     if args[i + 1].parse::<f64>().is_ok() {
         let numbers = NumSet {
             num1: args[i + 0].clone(),
