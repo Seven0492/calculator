@@ -3,6 +3,8 @@ use std::path::Path;
 
 use path_absolutize::*;
 
+mod doc;
+
 struct NumSet {
     num1: String,
     num2: String,
@@ -73,20 +75,7 @@ fn main() {
     }
 
     if args.len() <= 1 {
-        println!(
-            "Pass in a single basic mathematical operation to be made.
-
-Options:
-    Addition `2 + 4`,
-    Substract `2 - 4`,
-    Multiplication `2 x 4` but using '*' without quotes can create problems,
-    Division `2 / 4`.
-
-Btw, If you just type two numbers separated by spaces without any symbols,
-  it will default to multiplication.
-
-For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
-        );
+        doc::help();
 
         // Debugging
         // println!("Variable i: '{}' (From args.len() <= 1)", i);
@@ -102,22 +91,9 @@ fn calculate(args: Vec<String>, i: usize) {
     if args[i].parse::<f64>().is_ok() {
         operations(&args, &i);
     } else {
-        wrong_formating(1);
+        doc::wrong_formating(1);
         println!("\nDocumentation:\n\n");
-        println!(
-            "Pass in a single basic mathematical operation to be made.
-
-Options:
-    Addition `2 + 4`,
-    Substract ` 2 - 4`,
-    Multiplication `2 x 4` but using '*' without quotes can create problems,
-    Division `2 / 4`.
-
-Btw, If you just type two numbers separated by spaces without any symbols,
-  it will default to multiplication.
-
-For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
-        );
+        doc::help();
     }
 }
 
@@ -178,21 +154,11 @@ fn operations(args: &Vec<String>, mut i: &usize) -> bool {
         if operations(&args, &i) {
             true
         } else {
-            wrong_formating(2);
+            doc::wrong_formating(2);
             false
         }
     } else {
-        wrong_formating(2);
+        doc::wrong_formating(2);
         false
-    }
-}
-
-fn wrong_formating(n: usize) {
-    if n == 1 {
-        println!("Wrong formatting!");
-    } else if n == 2 {
-        println!(
-            "Wrong formatting! Please execute the program without any arguments for documentation"
-        );
     }
 }
