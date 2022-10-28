@@ -174,7 +174,7 @@ fn operations(args: &Vec<String>, mut i: &usize) -> bool {
     } else if i == &0 {
         i = &1;
 
-        // Redo but with a
+        // Redo but with an updated first argument setting
         if operations(&args, &i) {
             true
         } else {
