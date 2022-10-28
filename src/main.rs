@@ -7,6 +7,7 @@ mod doc;
 
 struct NumSet {
     num1: String,
+    symbol: String,
     num2: String,
 }
 
@@ -97,16 +98,18 @@ fn calculate(args: Vec<String>, i: usize) {
     }
 }
 
-fn make_numset(args: &Vec<String>, i: &usize) -> NumSet {
+fn make_numset(args: &Vec<String>, mut i: &usize) -> NumSet {
     if args[i + 1].parse::<f64>().is_ok() {
         let numbers = NumSet {
             num1: args[i + 0].clone(),
+            symbol: String::new(),
             num2: args[i + 1].clone(),
         };
         numbers
     } else {
         let numbers = NumSet {
             num1: args[i + 0].clone(),
+            symbol: args[i + 1].clone(),
             num2: args[i + 2].clone(),
         };
         numbers
@@ -114,38 +117,22 @@ fn make_numset(args: &Vec<String>, i: &usize) -> NumSet {
 }
 
 fn operations(args: &Vec<String>, mut i: &usize) -> bool {
-    let numbers = make_numset(&args, &i);
-    let symbol = args[i + 1].clone();
+    let set = make_numset(&args, &i);
 
-    if symbol == "+" {
-        println!(
-            "{}",
-            numbers.add(numbers.num1.clone(), numbers.num2.clone())
-        );
+    if set.symbol == "+" {
+        println!("{}", set.add(set.num1.clone(), set.num2.clone()));
         true
-    } else if symbol == "-" {
-        println!(
-            "{}",
-            numbers.substract(numbers.num1.clone(), numbers.num2.clone())
-        );
+    } else if set.symbol == "-" {
+        println!("{}", set.substract(set.num1.clone(), set.num2.clone()));
         true
-    } else if symbol.to_lowercase() == "*" || symbol.to_lowercase() == "x" {
-        println!(
-            "{}",
-            numbers.multiplicate(numbers.num1.clone(), numbers.num2.clone())
-        );
+    } else if set.symbol.to_lowercase() == "*" || set.symbol.to_lowercase() == "x" {
+        println!("{}", set.multiplicate(set.num1.clone(), set.num2.clone()));
         true
-    } else if symbol == "/" {
-        println!(
-            "{}",
-            numbers.divide(numbers.num1.clone(), numbers.num2.clone())
-        );
+    } else if set.symbol == "/" {
+        println!("{}", set.divide(set.num1.clone(), set.num2.clone()));
         true
-    } else if symbol.parse::<f64>().is_ok() {
-        println!(
-            "{}",
-            numbers.multiplicate(numbers.num1.clone(), symbol.clone())
-        );
+    } else if set.symbol.parse::<f64>().is_ok() {
+        println!("{}", set.multiplicate(set.num1.clone(), set.symbol.clone()));
         true
     } else if i == &0 {
         i = &1;
