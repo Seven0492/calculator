@@ -19,8 +19,14 @@ pub fn run(array: &Vec<String>, i: &usize) {
                 if search_for_symbol > 0 {
                     doc::help();
                     todo!("Iterator to add multiple operations functionality");
-                } else { todo!("Iterator to add multiple operations functionality") }
-            }
+                } else {
+                    search_for_symbol = 1;
+
+                    todo!("Iterator to add multiple operations functionality");
+
+                    continue;
+                }
+            } else { todo!("Iterator to add multiple operations functionality"); }
         }
     }
 }
