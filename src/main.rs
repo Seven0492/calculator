@@ -55,9 +55,9 @@ fn main() {
         || args[0] == "target/release/calculator"
         || !args[0].parse::<f64>().is_ok()
     {
-        if args.len() > 4 {
-            // println!("Not enough arguments. Please execute the program without any arguments for documentation");
-        }
+        // if args.len() > 4 {
+        // println!("Not enough arguments. Please execute the program without any arguments for documentation");
+        // }
 
         i = 1;
 
