@@ -7,14 +7,14 @@ struct NumSet {
     num2: String,
 }
 
-pub fn run(array: &Vec<String>, i: &usize) {
+pub fn run(args: &Vec<String>, i: &usize) {
     let mut index = 0;
     let mut search_for_symbol = 0;
 
     let mut numbers = Numset { num1: String::new(), symbol: String::new(), num2: String::new() };
 
     if i == 0 {
-        for n in array.iter().unwrap() {
+        for n in args.iter().unwrap() {
             index += 1;
 
             numbers = Numset { num1: String::new(), symbol: String::new(), num2: String::new() };
