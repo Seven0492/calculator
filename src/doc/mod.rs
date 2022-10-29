@@ -1,4 +1,5 @@
 pub fn help() {
+    println!("\nHelp page:\n\n");
     println!(
         "Pass in a single basic mathematical operation to be made.
 
@@ -16,14 +17,14 @@ For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
 }
 
 pub fn wrong_formating(n: usize) {
-    if n == 1 {
-        println!("Wrong formatting!");
+    if n == 1 || n > 3 || n < 1 {
+        eprintln!("Wrong formatting!");
     } else if n == 2 {
-        println!(
+        eprintln!(
             "Wrong formatting! Please execute the program without any arguments for documentation"
         );
     } else if n == 3 {
-        todo!(
+        eprintln!(
             "Wrong formatting! Please execute the program without any arguments for documentation"
         );
     }
