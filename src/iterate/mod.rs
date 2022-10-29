@@ -30,7 +30,7 @@ pub fn run(args: &Vec<String>, i: &usize) {
                 doc::wrong_formating(1);
 
                 // Debugging
-                println!("search_for_symbol: '{}'\n", search_for_symbol);
+                println!("search_for_symbol: '{}'\n", &search_for_symbol);
                 // EOD
 
                 doc::help();
@@ -66,7 +66,7 @@ pub fn run(args: &Vec<String>, i: &usize) {
                 doc::wrong_formating(1);
 
                 // Debugging
-                println!("search_for_symbol: '{}'\n", search_for_symbol);
+                println!("search_for_symbol: '{}'\n", &search_for_symbol);
                 // EOD
 
                 doc::help();
