@@ -10,7 +10,7 @@ pub struct NumSet {
 pub fn run(args: &Vec<String>, i: &usize) {
     let mut search_for_symbol = 0;
 
-    let mut numbers = NumSet {
+    let mut set = NumSet {
         num1: String::new(),
         symbol: String::new(),
         num2: String::new(),
@@ -32,13 +32,13 @@ pub fn run(args: &Vec<String>, i: &usize) {
                 } else {
                     search_for_symbol = 1;
 
-                    if numbers.num1 == "" {
-                        numbers.num1 = n.clone();
-                    } else if numbers.num2 == "" {
-                        numbers.num2 = n.clone();
+                    if set.num1 == "" {
+                        set.num1 = n.clone();
+                    } else if set.num2 == "" {
+                        set.num2 = n.clone();
                     } else {
-                        numbers.num1 = n.clone();
-                        let _ = numbers.num2 == String::new();
+                        set.num1 = n.clone();
+                        let _ = set.num2 == String::new();
                     }
 
                     continue;
@@ -46,11 +46,7 @@ pub fn run(args: &Vec<String>, i: &usize) {
             } else {
                 if search_for_symbol == 1 {
                     module::operations(
-                        &vec![
-                            numbers.num1.clone(),
-                            numbers.symbol.clone(),
-                            numbers.num2.clone(),
-                        ],
+                        &vec![set.num1.clone(), set.symbol.clone(), set.num2.clone()],
                         &0,
                     );
 
