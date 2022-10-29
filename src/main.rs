@@ -11,8 +11,8 @@ fn main() {
 
     // Debugging (Only compiles in debugging mode)
     if cfg!(debug_assertions) {
-        println!("Variable args: {:?}", args);
-        println!("Lenght of the args variable: '{}'", args.len());
+        println!("Variable args: {:?}", &args);
+        println!("Lenght of the args variable: '{}'", &args.len());
     }
     // EOD (Standing for: 'End Of Debugging')
 
@@ -23,7 +23,7 @@ fn main() {
 
     // Debugging
     if cfg!(debug_assertions) {
-        println!("Variable working_directory: '{}'", working_directory);
+        println!("Variable working_directory: '{}'", &working_directory);
     }
     // EOD
 
@@ -42,7 +42,7 @@ fn main() {
         if cfg!(debug_assertions) {
             println!(
                 "Var i: '{}' (From checking for a weird starter argument)",
-                i
+                &i
             );
         }
         // EOD
@@ -50,7 +50,7 @@ fn main() {
         // Debugging
         if cfg!(debug_assertions) {
             println!("More than 3 arguments");
-            println!("Variable i: '{}' (From args.len() > 3)", i);
+            println!("Variable i: '{}' (From args.len() > 3)", &i);
         }
         // EOD
     }
@@ -60,7 +60,7 @@ fn main() {
 
         // Debugging
         if cfg!(debug_assertions) {
-            println!("Variable i: '{}' (From args.len() <= 1)", i);
+            println!("Variable i: '{}' (From args.len() <= 1)", &i);
         }
         // EOD
 
