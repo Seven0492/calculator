@@ -7,7 +7,7 @@ pub struct NumSet {
     num2: String,
 }
 
-pub fn run(args: &Vec<String>, i: &usize) {
+pub fn run(args: Vec<String>, i: usize) {
     let mut search_for_symbol = 0;
 
     let mut set = NumSet {
@@ -19,7 +19,7 @@ pub fn run(args: &Vec<String>, i: &usize) {
     let mut passed_over_initial_block = 0;
 
     for n in args.iter() {
-        if &passed_over_initial_block != i {
+        if passed_over_initial_block != i {
             passed_over_initial_block += 1;
 
             continue;

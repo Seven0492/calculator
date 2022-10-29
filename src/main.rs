@@ -74,11 +74,11 @@ fn calculate(args: Vec<String>, i: usize) {
     // If initial argument is a number
     if args[i].parse::<f64>().is_ok() {
         if cfg!(debug_assertions) {
-            println!("Continuing into src/iterate/mod.rs::run(&args, &i)\n");
+            println!("Continuing into src/iterate/mod.rs::run(&args, i)\n");
         }
 
         // Then continue with operations
-        iterate::run(&args, &i);
+        iterate::run(args, i);
     // Else warn about wrong formatting and print the help page
     } else {
         doc::wrong_formating(1);
