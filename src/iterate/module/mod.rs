@@ -42,7 +42,7 @@ pub fn make_numset(args: &Vec<String>, i: &usize) -> NumSet {
     }
 }
 
-pub fn operations(args: &Vec<String>, mut i: usize) -> bool {
+pub fn operations(args: Vec<String>, mut i: usize) -> bool {
     let set = make_numset(&args, &i);
 
     if set.symbol == "+" {
@@ -64,7 +64,7 @@ pub fn operations(args: &Vec<String>, mut i: usize) -> bool {
         i = 1;
 
         // Redo but with an updated first argument setting
-        if operations(&args, i) {
+        if operations(args, i) {
             true
         } else {
             doc::wrong_formating(2);

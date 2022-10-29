@@ -57,7 +57,7 @@ pub fn run(args: Vec<String>, i: usize) {
                 }
 
                 module::operations(
-                    &vec![set.num1.clone(), set.symbol.clone(), set.num2.clone()],
+                    vec![set.num1.clone(), set.symbol.clone(), set.num2.clone()],
                     0,
                 );
 
