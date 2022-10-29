@@ -57,8 +57,8 @@ pub fn operations(args: &Vec<String>, mut i: &usize) -> bool {
     } else if set.symbol == "/" {
         println!("{}", set.divide(set.num1.clone(), set.num2.clone()));
         true
-    } else if set.symbol.parse::<f64>().is_ok() {
-        println!("{}", set.multiplicate(set.num1.clone(), set.symbol.clone()));
+    } else if set.symbol == "" {
+        println!("{}", set.multiplicate(set.num1.clone(), set.num2.clone()));
         true
     } else if i == &0 {
         i = &1;
