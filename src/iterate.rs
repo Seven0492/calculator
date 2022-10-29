@@ -19,7 +19,7 @@ pub fn run(args: &Vec<String>, i: &usize) {
     let mut passed_over_initial_block = 0;
 
     for n in args.iter() {
-        if i > &0 || &passed_over_initial_block != i {
+        if &passed_over_initial_block != i {
             passed_over_initial_block += 1;
 
             continue;
