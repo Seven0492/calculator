@@ -8,6 +8,10 @@ pub struct NumSet {
 }
 
 pub fn run(args: Vec<String>, i: usize) {
+    if cfg!(debug_assertions) {
+        println!("Initial args variable: {:?}", &args);
+    }
+
     let mut search_for_symbol = 0;
 
     let mut set = NumSet {
