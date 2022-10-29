@@ -9,9 +9,11 @@ mod iterate;
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    // Debugging
-    // println!("Variable args: {:?}", args);
-    // println!("Lenght of the args variable: '{}'", args.len());
+    // Debugging (Only compiles in debugging mode)
+    if cfg!(debug_assertions) {
+        println!("Variable args: {:?}", args);
+        println!("Lenght of the args variable: '{}'", args.len());
+    }
     // EOD (Standing for: 'End Of Debugging')
 
     // Get the absolute path to the current working directory
@@ -20,7 +22,9 @@ fn main() {
     let working_directory = dir2.to_str().unwrap();
 
     // Debugging
-    // println!("Variable working_directory: '{}'", working_directory);
+    if cfg!(debug_assertions) {
+        println!("Variable working_directory: '{}'", working_directory);
+    }
     // EOD
 
     // 'i' which means 'first argument'
@@ -32,24 +36,22 @@ fn main() {
         || args[0] == "target/release/calculator"
         || !args[0].parse::<f64>().is_ok()
     {
-        // if args.len() > 4 {
-        // println!("Not enough arguments. Please execute the program without any arguments for documentation");
-        // }
-
         i = 1;
 
         // Debugging
-        // println!(
-        // "Var i: '{}' (From checking for a weird starter argument)",
-        // i
-        // );
+        if cfg!(debug_assertions) {
+            println!(
+                "Var i: '{}' (From checking for a weird starter argument)",
+                i
+            );
+        }
         // EOD
     } else if args.len() > 3 {
-        // Disable warning
-        // println!("Too many arguments. Please execute the program without any arguments for documentation");
-
         // Debugging
-        // println!("Variable i: '{}' (From args.len() > 3)", i);
+        if cfg!(debug_assertions) {
+            println!("More than 3 arguments");
+            println!("Variable i: '{}' (From args.len() > 3)", i);
+        }
         // EOD
     }
 
@@ -57,7 +59,9 @@ fn main() {
         doc::help();
 
         // Debugging
-        // println!("Variable i: '{}' (From args.len() <= 1)", i);
+        if cfg!(debug_assertions) {
+            println!("Variable i: '{}' (From args.len() <= 1)", i);
+        }
         // EOD
 
         // If first argument is a number
@@ -67,11 +71,13 @@ fn main() {
 }
 
 fn calculate(args: Vec<String>, i: usize) {
+    // If initial argument is a number
     if args[i].parse::<f64>().is_ok() {
+        // The continue with operations
         iterate::module::operations(&args, &i);
+    // Else warn about wrong formatting and print the help page
     } else {
         doc::wrong_formating(1);
-        println!("\nDocumentation:\n\n");
         doc::help();
     }
 }
