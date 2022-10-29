@@ -1,5 +1,6 @@
 mod doc;
 
+#[derive(Debug)]
 pub struct NumSet {
     num1: String,
     symbol: String,
@@ -44,6 +45,10 @@ pub fn make_numset(args: &Vec<String>, i: &usize) -> NumSet {
 
 pub fn operations(args: Vec<String>, mut i: usize) -> bool {
     let set = make_numset(&args, &i);
+
+    if cfg!(debug_assertions) {
+        println!("Variable set: {:?}", &set);
+    }
 
     if set.symbol == "+" {
         println!("{}", set.add(set.num1.clone(), set.num2.clone()));
