@@ -53,6 +53,10 @@ pub fn run(args: Vec<String>, i: usize) {
         } else {
             if search_for_symbol == 1 {
                 if cfg!(debug_assertions) {
+                    println!(
+                        "Soon to be passed Vec<String>: {:?}",
+                        vec![set.num1.clone(), set.symbol.clone(), set.num2.clone()]
+                    );
                     println!("Passing into src/iterate/module/mod.rs::operations()\n");
                 }
 
