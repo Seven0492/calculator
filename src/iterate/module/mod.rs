@@ -42,7 +42,7 @@ pub fn make_numset(args: &Vec<String>, i: &usize) -> NumSet {
     }
 }
 
-pub fn operations(args: &Vec<String>, mut i: &usize) -> bool {
+pub fn operations(args: &Vec<String>, mut i: usize) -> bool {
     let set = make_numset(&args, &i);
 
     if set.symbol == "+" {
@@ -57,14 +57,14 @@ pub fn operations(args: &Vec<String>, mut i: &usize) -> bool {
     } else if set.symbol == "/" {
         println!("{}", set.divide(set.num1.clone(), set.num2.clone()));
         true
-    } else if set.symbol == "" {
+    } else if set.symbol == String::new() {
         println!("{}", set.multiplicate(set.num1.clone(), set.num2.clone()));
         true
-    } else if i == &0 {
-        i = &1;
+    } else if i == 0 {
+        i = 1;
 
         // Redo but with an updated first argument setting
-        if operations(&args, &i) {
+        if operations(&args, i) {
             true
         } else {
             doc::wrong_formating(2);
