@@ -57,6 +57,10 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
 
         if n.parse::<f64>().is_ok() {
             if search_for_symbol > 0 {
+                if cfg!(debug_assertions) {
+                    eprintln!("Searching for symbol but finding a number");
+                }
+
                 doc::wrong_formating(1);
 
                 // Debugging
@@ -156,10 +160,12 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
                     0,
                 );
 
+                search_for_symbol = 0;
+
                 continue;
             }
         } else {
-            if set.num1 != "" && set.num2 != "" && set.symbol != "" {
+            if set.num1 != "" && set.num2 != "" && set.symbol != "" && search_for_symbol == 1 {
                 // Debugging
                 if cfg!(debug_assertions) {
                     println!(
@@ -174,6 +180,8 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
                     vec![set.num1.clone(), set.symbol.clone(), set.num2.clone()],
                     0,
                 );
+
+                search_for_symbol = 0;
 
                 continue;
             } else if set.num2 == "" && set.symbol == "" && set.num1 != "" && search_for_symbol == 1
@@ -229,7 +237,7 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
                     0,
                 );
 
-                continue;
+                search_for_symbol = 0;
             }
         }
     }
