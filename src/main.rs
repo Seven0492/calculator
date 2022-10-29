@@ -79,7 +79,7 @@ fn calculate(args: Vec<String>, i: usize) {
         }
 
         // Then continue with operations
-        iterate::run(args, i);
+        iterate::run(args, i, 0);
     // Else warn about wrong formatting and print the help page
     } else {
         doc::wrong_formating(1);
