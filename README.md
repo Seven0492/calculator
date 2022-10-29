@@ -7,8 +7,10 @@ If you have ideas, and I mean any, it would be really appreciated if you pitch i
 # Features
 
 <ol>
-  <li>Support for for basic operations (Additions, substractions, multiplication and division). Done!</li>
-  <li></li>
+  <li>Support for for basic operations (Addition, substraction, multiplication and division). Done!</li>
+  <li>Support for multiple operations without following PEMDAS. To do!</li>
+  <li>Support for multiple operations following PEMDAS. To do!</li>
+  <li>Support stdin input after the initial operations given. To do!</li>
 </ol>
 
 # From
