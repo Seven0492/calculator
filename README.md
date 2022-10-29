@@ -7,7 +7,7 @@ If you have ideas, and I mean any, it would be really appreciated if you pitch i
 # Features
 
 <ul>
-  <li>Support for for basic operations (Addition, substraction, multiplication and division). <strong>Done!</strong></li>
+  <li>Support for basic operations (Addition, substraction, multiplication and division). <strong>Done!</strong></li>
   <li>Support for multiple operations without following PEMDAS. <strong>To do!</strong></li>
   <li>Support for multiple operations following PEMDAS. <strong>To do!</strong></li>
   <li>Support stdin input after the initial operations given. <strong>To do!</strong></li>
