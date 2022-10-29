@@ -74,7 +74,7 @@ fn calculate(args: Vec<String>, i: usize) {
     // If initial argument is a number
     if args[i].parse::<f64>().is_ok() {
         // The continue with operations
-        iterate::module::operations(&args, &i);
+        iterate::run(&args, &i);
     // Else warn about wrong formatting and print the help page
     } else {
         doc::wrong_formating(1);
