@@ -21,16 +21,12 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
         num2: String::new(),
     };
 
-    let mut index = 0;
-
-    for n in args.iter() {
+    for (index, n) in args.iter().enumerate() {
         // Debugging
         if cfg!(debug_assertions) {
             println!("Variable n: {}", &n);
         }
         // EOD
-
-        index += 1;
 
         // Debugging
         if cfg!(debug_assertions) {
