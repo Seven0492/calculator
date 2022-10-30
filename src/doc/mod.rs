@@ -9,15 +9,17 @@ Options:
   Multiplication `2 x 4` but using '*' without quotes can create problems,
   Division `2 / 4`.
 
-If you just type two numbers separated by spaces without any symbols,
-it will default to multiplication.
+Without any symbols, it defaults to multiplication.
+
+You can do multiple operations like this: `./executable.exe 11 / 3 6 x 3`,
+                  which will return two results.
 
 For example: `./executable.exe 1.2 + 63.52` or `./executable.exe 2 x 4`\n"
     );
 }
 
 pub fn wrong_formating(n: usize) {
-    if n == 1 || n > 3 || n < 1 {
+    if n > 3 || n <= 1 {
         eprintln!("Wrong formatting!");
     } else if n == 2 {
         eprintln!(
