@@ -52,18 +52,43 @@ pub fn operations(args: Vec<String>, mut i: usize) -> bool {
 
     if set.symbol == "+" {
         println!("{}", set.add(set.num1.clone(), set.num2.clone()));
+
+        // Add space after print for debugging/clear demarcation of functions output
+        if cfg!(debug_assertions) {
+            print!("\n");
+        }
         true
     } else if set.symbol == "-" {
         println!("{}", set.substract(set.num1.clone(), set.num2.clone()));
+
+        // Add space after print for debugging/clear demarcation of functions output
+        if cfg!(debug_assertions) {
+            print!("\n");
+        }
         true
     } else if set.symbol.to_lowercase() == "*" || set.symbol.to_lowercase() == "x" {
         println!("{}", set.multiplicate(set.num1.clone(), set.num2.clone()));
+
+        // Add space after print for debugging/clear demarcation of functions output
+        if cfg!(debug_assertions) {
+            print!("\n");
+        }
         true
     } else if set.symbol == "/" {
         println!("{}", set.divide(set.num1.clone(), set.num2.clone()));
+
+        // Add space after print for debugging/clear demarcation of functions output
+        if cfg!(debug_assertions) {
+            print!("\n");
+        }
         true
     } else if set.symbol == String::new() {
         println!("{}", set.multiplicate(set.num1.clone(), set.num2.clone()));
+
+        // Add space after print for debugging/clear demarcation of functions output
+        if cfg!(debug_assertions) {
+            print!("\n");
+        }
         true
     } else if i == 0 {
         i = 1;

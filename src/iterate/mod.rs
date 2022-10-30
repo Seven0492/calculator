@@ -90,7 +90,7 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
                 if set.num1 == "" {
                     // Debugging
                     if cfg!(debug_assertions) {
-                        println!("Cloning 'n' into empty set.num1");
+                        println!("Cloning 'n' into set.num1 which is: {}", &set.num1);
                     }
                     // EOD
 
@@ -105,7 +105,7 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
                 } else if set.num2 == "" {
                     // Debugging
                     if cfg!(debug_assertions) {
-                        println!("Cloning 'n' into empty set.num2");
+                        println!("Cloning 'n' into set.num2 which is: {}", &set.num2);
                     }
                     // EOD
 
@@ -120,7 +120,7 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
                 } else {
                     // Debugging
                     if cfg!(debug_assertions) {
-                        println!("Cloning 'n' into empty set.num1");
+                        println!("Cloning 'n' into set.num1 which is: {}", &set.num1);
                     }
                     // EOD
 
@@ -130,14 +130,17 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
                     if cfg!(debug_assertions) {
                         println!("New set.num1: {}", &set.num1);
                         println!("Emptying set.num2: {}", &set.num2);
+                        println!("Emptying set.symbol: {}", &set.symbol);
                     }
                     // EOD
 
-                    let _ = set.num2 == String::new();
+                    set.num2 = String::new();
+                    set.symbol = String::new();
 
                     // Debugging
                     if cfg!(debug_assertions) {
                         println!("New set.num2: {}", &set.num2);
+                        println!("New set.symbol: {}", &set.num2);
                         println!("{:?}", &set);
                     }
                     // EOD
