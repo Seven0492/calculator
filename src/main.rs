@@ -21,6 +21,8 @@ fn main() {
     let dir2 = dir1.absolutize().unwrap();
     let working_directory = dir2.to_str().unwrap();
 
+    drop(dir1);
+
     // Debugging
     if cfg!(debug_assertions) {
         println!("Variable working_directory: '{}'", &working_directory);
