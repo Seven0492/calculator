@@ -143,7 +143,7 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
                 }
             }
 
-            if index % 3 == 0 {
+            if (index + 1) % 3 == 0 && index != 0 {
                 // Debugging
                 if cfg!(debug_assertions) {
                     println!(
@@ -221,7 +221,7 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
             }
 
             // If index is divisible by 3 (ex: 3, 6, 9, 12...)
-            if index % 3 == 0 {
+            if (index + 1) % 3 == 0 {
                 // Debugging
                 if cfg!(debug_assertions) {
                     println!(
