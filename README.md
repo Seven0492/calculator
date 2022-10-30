@@ -8,8 +8,8 @@ If you have ideas, and I mean any, it would be really appreciated if you pitch i
 
 <ul>
   <li>Support for basic operations (Addition, substraction, multiplication and division). <strong>Done!</strong></li>
-  <li>Support for multiple operations without following PEMDAS. <strong>To do!</strong></li>
-  <li>Support for multiple operations following PEMDAS. <strong>To do!</strong></li>
+  <li>Support for multiple simultaneous separate operations. <strong>Done!</strong></li>
+  <li>Support for multiple connected operations following PEMDAS. <strong>To do!</strong></li>
   <li>Support stdin input after the initial operations given. <strong>To do!</strong></li>
 </ul>
 

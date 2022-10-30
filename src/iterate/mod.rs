@@ -224,6 +224,7 @@ pub fn run(args: Vec<String>, i: usize, passed_over_initial_block: usize) {
                 return;
             }
 
+            // If index is divisible by 3 (ex: 3, 6, 9, 12...)
             if index % 3 == 0 {
                 // Debugging
                 if cfg!(debug_assertions) {
