@@ -4,6 +4,12 @@ If you were wondering what this was all about, this is a rudimentary calculator 
 
 If you have ideas, and I mean any, it would be really appreciated if you pitch in a conversation, or open an issue!
 
+# Warning
+
+I have moved this project's development to Gitlab: https://gitlab.com/Seven0492/calculator
+
+There are several reasons for this, one of them is that Github's CLI sucks
+
 # Features
 
 <ul>
